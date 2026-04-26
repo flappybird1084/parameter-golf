@@ -1,0 +1,75 @@
+logs/796f2243-4c3e-4fde-91ef-63aaec00bf01.txt
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+train_loader:dataset:fineweb10B_sp1024 train_shards:80
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:62021632
+model_params:18436169
+world_size:1 grad_accum_steps:8
+v5: leaky_relu^2 muon_wd:0.04 eval_stride:64 xsa_all:True bigram_vocab_size:10240 bigram_dim:128
+sdp_backends:cudnn=False flash=True mem_efficient=False math=False
+attention_mode:gqa num_heads:8 num_kv_heads:4
+tie_embeddings:True embed_lr:0.05 head_lr:0.0 matrix_lr:0.04 scalar_lr:0.04
+train_batch_tokens:524288 train_seq_len:1024 iterations:20000 warmup_steps:20 max_wallclock_seconds:600.000
+seed:1337
+W0426 13:47:17.916000 236412 torch/_inductor/utils.py:1613] [0/0] Not enough SMs to use max_autotune_gemm mode
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:0/20000 val_loss:6.9353 val_bpb:4.1075 train_time:0ms step_avg:0.02ms
+step:1/20000 train_loss:6.9354 train_time:1649ms step_avg:1649.44ms
+step:2/20000 train_loss:16.7396 train_time:3321ms step_avg:1660.30ms
+step:3/20000 train_loss:15.5947 train_time:4996ms step_avg:1665.28ms
+step:4/20000 train_loss:13.5938 train_time:6675ms step_avg:1668.68ms
+step:5/20000 train_loss:11.4309 train_time:8355ms step_avg:1670.98ms
+step:6/20000 train_loss:9.4873 train_time:10041ms step_avg:1673.45ms
+step:7/20000 train_loss:7.9629 train_time:11724ms step_avg:1674.92ms
+step:8/20000 train_loss:7.0526 train_time:13409ms step_avg:1676.15ms
+step:9/20000 train_loss:6.4206 train_time:15091ms step_avg:1676.82ms
+step:10/20000 train_loss:6.0742 train_time:16774ms step_avg:1677.44ms
+step:200/20000 train_loss:2.7733 train_time:337943ms step_avg:1689.71ms
+step:355/20000 val_loss:2.6057 val_bpb:1.5433 train_time:600027ms step_avg:1690.22ms
+stopping_early: wallclock_cap train_time:600027ms step:355/20000
+peak memory allocated: 11396 MiB reserved: 11454 MiB
+Serialized model: 70109594 bytes
+Code size: 57855 bytes
+Total submission size: 70167449 bytes
+Serialized model int8+zlib: 9113698 bytes (payload:19163428 raw_torch:19209427 payload_ratio:3.66x)
+Total submission size int8+zlib: 9171553 bytes
+final_eval_mode:sliding_window stride:64 batch_seqs:512
+  sliding_eval [  0.1%] 512/969088 windows running_bpb=1.5800
+  sliding_eval [  5.3%] 51712/969088 windows running_bpb=1.5474
+  sliding_eval [ 10.6%] 102912/969088 windows running_bpb=1.5498
+  sliding_eval [ 15.9%] 154112/969088 windows running_bpb=1.5493
+  sliding_eval [ 21.2%] 205312/969088 windows running_bpb=1.5486
+  sliding_eval [ 26.5%] 256512/969088 windows running_bpb=1.5444
+  sliding_eval [ 31.8%] 307712/969088 windows running_bpb=1.5411
+  sliding_eval [ 37.0%] 358912/969088 windows running_bpb=1.5363
+  sliding_eval [ 42.3%] 410112/969088 windows running_bpb=1.5358
+  sliding_eval [ 47.6%] 461312/969088 windows running_bpb=1.5366
+  sliding_eval [ 52.9%] 512512/969088 windows running_bpb=1.5381
+  sliding_eval [ 58.2%] 563712/969088 windows running_bpb=1.5395
+  sliding_eval [ 63.5%] 614912/969088 windows running_bpb=1.5376
+  sliding_eval [ 68.7%] 666112/969088 windows running_bpb=1.5352
+  sliding_eval [ 74.0%] 717312/969088 windows running_bpb=1.5344
+  sliding_eval [ 79.3%] 768512/969088 windows running_bpb=1.5363
+  sliding_eval [ 84.6%] 819712/969088 windows running_bpb=1.5376
+  sliding_eval [ 89.9%] 870912/969088 windows running_bpb=1.5380
+  sliding_eval [ 95.2%] 922112/969088 windows running_bpb=1.5367
+final_int8_zlib_roundtrip val_loss:2.5929 val_bpb:1.5356 eval_time:2283605ms
+final_int8_zlib_roundtrip_exact val_loss:2.59286791 val_bpb:1.53564439

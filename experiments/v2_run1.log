@@ -1,0 +1,50 @@
+logs/7c87ffd5-4a94-440e-b943-e40b4966e262.txt
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+train_loader:dataset:fineweb10B_sp1024 train_shards:80
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:62021632
+model_params:17289290
+world_size:1 grad_accum_steps:8
+lora_rank:16 ve_dim:64 ve_n_layers:2 recur_passes:1
+warmdown_iters:180 matrix_lr:0.015 scalar_lr:0.015 (v2: tuned for fixed schedule)
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:0/20000 val_loss:6.9351 val_bpb:4.1074 train_time:0ms step_avg:0.02ms
+step:1/20000 train_loss:6.9350 train_time:1591ms step_avg:1591.38ms
+step:2/20000 train_loss:8.4539 train_time:3259ms step_avg:1629.70ms
+step:3/20000 train_loss:6.1431 train_time:4925ms step_avg:1641.60ms
+step:4/20000 train_loss:7.3489 train_time:6588ms step_avg:1647.10ms
+step:5/20000 train_loss:7.8823 train_time:8254ms step_avg:1650.77ms
+step:6/20000 train_loss:7.6248 train_time:9922ms step_avg:1653.69ms
+step:7/20000 train_loss:7.0521 train_time:11583ms step_avg:1654.65ms
+step:8/20000 train_loss:6.8696 train_time:13246ms step_avg:1655.75ms
+step:9/20000 train_loss:6.5668 train_time:14910ms step_avg:1656.62ms
+step:10/20000 train_loss:6.4314 train_time:16575ms step_avg:1657.45ms
+step:200/20000 train_loss:3.2312 train_time:335826ms step_avg:1679.13ms
+step:359/20000 val_loss:2.7799 val_bpb:1.6464 train_time:601569ms step_avg:1675.68ms
+stopping_early: wallclock_cap train_time:601569ms step:359/20000
+peak memory allocated: 10824 MiB reserved: 10882 MiB
+Serialized model: 68018169 bytes
+Code size: 49590 bytes
+Total submission size: 68067759 bytes
+Serialized model int8+zlib: 10582104 bytes (payload:17932584 raw_torch:17984047 payload_ratio:3.79x)
+Total submission size int8+zlib: 10631694 bytes
+final_int8_zlib_roundtrip val_loss:2.7908 val_bpb:1.6529 eval_time:61084ms
+final_int8_zlib_roundtrip_exact val_loss:2.79078752 val_bpb:1.65286157
