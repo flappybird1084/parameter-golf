@@ -53,3 +53,23 @@ Serialized model int8+zlib: 9626124 bytes (payload:20475172 raw_torch:20521425 p
 Total submission size int8+zlib: 9684197 bytes
 final_eval_mode:sliding_window stride:64 batch_seqs:512
   sliding_eval [  0.1%] 512/969088 windows running_bpb=1.5651
+  sliding_eval [  5.3%] 51712/969088 windows running_bpb=1.5299
+  sliding_eval [ 10.6%] 102912/969088 windows running_bpb=1.5321
+  sliding_eval [ 15.9%] 154112/969088 windows running_bpb=1.5316
+  sliding_eval [ 21.2%] 205312/969088 windows running_bpb=1.5311
+  sliding_eval [ 26.5%] 256512/969088 windows running_bpb=1.5270
+  sliding_eval [ 31.8%] 307712/969088 windows running_bpb=1.5239
+  sliding_eval [ 37.0%] 358912/969088 windows running_bpb=1.5191
+  sliding_eval [ 42.3%] 410112/969088 windows running_bpb=1.5185
+  sliding_eval [ 47.6%] 461312/969088 windows running_bpb=1.5193
+  sliding_eval [ 52.9%] 512512/969088 windows running_bpb=1.5208
+  sliding_eval [ 58.2%] 563712/969088 windows running_bpb=1.5222
+  sliding_eval [ 63.5%] 614912/969088 windows running_bpb=1.5204
+  sliding_eval [ 68.7%] 666112/969088 windows running_bpb=1.5180
+  sliding_eval [ 74.0%] 717312/969088 windows running_bpb=1.5172
+  sliding_eval [ 79.3%] 768512/969088 windows running_bpb=1.5191
+  sliding_eval [ 84.6%] 819712/969088 windows running_bpb=1.5203
+  sliding_eval [ 89.9%] 870912/969088 windows running_bpb=1.5207
+  sliding_eval [ 95.2%] 922112/969088 windows running_bpb=1.5194
+final_int8_zlib_roundtrip val_loss:2.5638 val_bpb:1.5184 eval_time:2287630ms
+final_int8_zlib_roundtrip_exact val_loss:2.56378320 val_bpb:1.51841877

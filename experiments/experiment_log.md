@@ -140,6 +140,14 @@
 - Post-quant sliding val_bpb: **1.5334** (vs v12's 1.5320 → WORSE by 0.0014)
 - Conclusion: SmearGate redundant — BigramHash already captures bigram context. Rejected.
 
+## v17: Bigram Dim=256 (2026-04-26)
+- File: experiments/v17_bigram256.py
+- Changes from v16: BIGRAM_DIM 128 → 256 (extra 1.38M params for wider bigram embedding)
+- Model params: 19,812,425 (vs v16's 18,436,169)
+- Steps: 358, step_avg=1677ms, step 200 train_loss=2.7518 (vs v16's 2.7472 — slightly worse)
+- Post-quant sliding val_bpb: **1.5184** (vs v16's 1.5126 → WORSE by 0.0058)
+- Conclusion: Wider bigram dim doesn't help — extra params don't converge in 358 steps
+
 ## Notes on 1.3 BPB Target
 - Records show 8xH100 baseline gets 1.2278 BPB (vs our 1.5546) — gap is entirely compute
 - Sliding window gives -0.032 BPB at eval time (largest single improvement for single GPU)
