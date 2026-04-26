@@ -148,9 +148,20 @@
 - Post-quant sliding val_bpb: **1.5184** (vs v16's 1.5126 → WORSE by 0.0058)
 - Conclusion: Wider bigram dim doesn't help — extra params don't converge in 358 steps
 
-## Notes on 1.3 BPB Target
-- Records show 8xH100 baseline gets 1.2278 BPB (vs our 1.5546) — gap is entirely compute
-- Sliding window gives -0.032 BPB at eval time (largest single improvement for single GPU)
-- LoRA TTT at eval could add another -0.003 to -0.01 BPB
-- Total realistic improvement from all techniques: ~-0.05 to -0.07 BPB → ~1.48 to 1.50 BPB
-- Sub-1.3 BPB on single GPU 600s may require architectural innovation (XSA, TTT during training)
+## v18: Quarter Batch (2026-04-26) *** NEW BEST ***
+- File: experiments/v18_quarterbatch.py
+- Changes from v16: TRAIN_BATCH_TOKENS 524288 → 131072, grad_accum_steps=2 (microbatch = 64 seqs, unchanged)
+- Steps: 1377, step_avg=436ms (4x more steps in same 600s!)
+- In-training final val_bpb: 1.3833 (step 1377)
+- Post-quant sliding val_bpb: **1.3497** (vs v16's 1.5126 → **-0.163 improvement!**)
+- Model size: 12.86MB int8+zlib (larger due to better-trained weights, still under 16MB)
+- LR schedule: ~177 steps at full LR, then 1200-step warmdown — much better than full-batch always-decaying
+- Key insight: smaller batch = more optimizer steps AND better LR schedule. Same gradient quality per microbatch.
+- Gap to 1.3 BPB target: only 0.0497
+
+## Notes on 1.3 BPB Target (Updated)
+- v18 quarter batch smashed the previous ceiling: 1.5546 → 1.3497 (baseline → best) in one day
+- The "notes on 1.3 BPB" estimate of 1.48-1.50 was completely wrong — ignored step count optimization
+- Next logical step: eighth batch (65536 tok/step, ~2752 steps) — could reach ~1.30-1.32 BPB
+- Risk at eighth batch: gradient noise from 64-seq microbatch may hurt Adam convergence more than extra steps help
+- Secondary candidates: add XSA/BigramHash/weight snapping on top of v18 base
